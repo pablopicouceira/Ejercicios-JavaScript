@@ -1,1 +1,1 @@
-# Ejercicios-JavaScript hola que pasa
+# Ejercicios-JavaScript
