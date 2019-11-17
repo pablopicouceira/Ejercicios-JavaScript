@@ -1,4 +1,4 @@
-'use strict';
+"use strict";
 // Prime Time
 
 // Have the function PrimeTime(num) take the num parameter being passed and return the string true if the parameter is a prime number,
@@ -25,7 +25,7 @@ console.log(PrimeTime(17));
 // single character of the repeating sequence.For example: "wwwggopp" would return 3w2g1o2p.The string will not contain any numbers,
 // punctuation, or symbols.
 
-const text = 'wwwbbbwssrbbmmm';
+const text = "wwwbbbwssrbbmmm";
 
 function RunLength(str) {
   let array = [];
@@ -40,7 +40,7 @@ function RunLength(str) {
       contador = 1;
     }
   }
-  const newStr = array.join('');
+  const newStr = array.join("");
   return newStr;
 }
 
@@ -141,13 +141,13 @@ function ArrayAddition(arr) {
 // (the string is the same forward as it is backward) otherwise return the string false.The parameter entered may have punctuation and
 // symbols but they should not affect whether the string is in fact a palindrome.For example: "Anne, I vote more cars race Rome-to-Vienna"
 // should return true.
-
-let string = 'Noel - sees Leon'; // "A war at Tarawa!"
+/*
+let string = "Noel - sees Leon"; // "A war at Tarawa!"
 
 function eliminarNoLetras(sen) {
   let a = 0;
-  let newString = '';
-  let upperString = '';
+  let newString = "";
+  let upperString = "";
   while (a <= sen.length) {
     if (esAlfaNumerico(sen.charAt(a))) {
       newString = newString + sen.charAt(a);
@@ -159,14 +159,14 @@ function eliminarNoLetras(sen) {
 
   let b = upperString.length;
 
-  let invertedString = '';
+  let invertedString = "";
 
   while (a >= 0) {
     invertedString = invertedString + upperString.charAt(b);
     b--;
   }
   if (upperString === invertedString) {
-    consoele.log('true');
+    consoele.log("true");
   }
 }
 
@@ -181,7 +181,7 @@ function firstReverse(str) {
   let a = str.length;
 
   // console.log(a);
-  let invertedString = '';
+  let invertedString = "";
 
   while (a >= 0) {
     invertedString = invertedString + str.charAt(a);
@@ -193,3 +193,4 @@ function firstReverse(str) {
 }
 
 console.log(firstReverse(upperString));
+*/
