@@ -141,56 +141,73 @@ function ArrayAddition(arr) {
 // (the string is the same forward as it is backward) otherwise return the string false.The parameter entered may have punctuation and
 // symbols but they should not affect whether the string is in fact a palindrome.For example: "Anne, I vote more cars race Rome-to-Vienna"
 // should return true.
-/*
-let string = "Noel - sees Leon"; // "A war at Tarawa!"
 
-function eliminarNoLetras(sen) {
+let string = "A warx at Tarawa!"; //"Noel - sees Leon"; // "A war at Tarawa!"
+
+function PalindromeTwo(str) {
   let a = 0;
   let newString = "";
-  let upperString = "";
-  while (a <= sen.length) {
-    if (esAlfaNumerico(sen.charAt(a))) {
-      newString = newString + sen.charAt(a);
+  while (a <= str.length) {
+    if (esAlfaNumerico(str.charAt(a))) {
+      newString = newString + str.charAt(a);
     }
 
     a++;
   }
+  console.log(newString);
+  let upperString = "";
   upperString = newString.toUpperCase();
-
+  console.log(upperString);
   let b = upperString.length;
-
   let invertedString = "";
-
-  while (a >= 0) {
+  while (b >= 0) {
     invertedString = invertedString + upperString.charAt(b);
     b--;
   }
-  if (upperString === invertedString) {
-    consoele.log("true");
-  }
-}
+  console.log(invertedString);
 
-eliminarNoLetras(string);
+  if (upperString === invertedString) {
+    return true;
+  }
+  return false;
+}
 
 function esAlfaNumerico(caracter) {
   let ascii = caracter.toUpperCase().charCodeAt(0);
   return (ascii > 47 && ascii < 58) || (ascii > 64 && ascii < 91);
 }
 
-function firstReverse(str) {
-  let a = str.length;
+console.log(PalindromeTwo(string));
+//   upperString = newString.toUpperCase();
 
-  // console.log(a);
-  let invertedString = "";
+//   let b = upperString.length;
 
-  while (a >= 0) {
-    invertedString = invertedString + str.charAt(a);
-    a--;
-    // console.log(a);
-  }
+//   let invertedString = "";
 
-  return invertedString;
-}
+//   while (a >= 0) {
+//     invertedString = invertedString + upperString.charAt(b);
+//     b--;
+//   }
+//   if (upperString === invertedString) {
+//     consoele.log("true");
+//   }
+// }
 
-console.log(firstReverse(upperString));
-*/
+// eliminarNoLetras(string);
+
+// function firstReverse(str) {
+//   let a = str.length;
+
+//   // console.log(a);
+//   let invertedString = "";
+
+//   while (a >= 0) {
+//     invertedString = invertedString + str.charAt(a);
+//     a--;
+//     // console.log(a);
+//   }
+
+//   return invertedString;
+// }
+
+// console.log(firstReverse(upperString));
