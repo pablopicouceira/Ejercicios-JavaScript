@@ -1,4 +1,5 @@
 "use strict";
+
 // Prime Time
 
 // Have the function PrimeTime(num) take the num parameter being passed and return the string true if the parameter is a prime number,
@@ -82,6 +83,7 @@ function isPrime(aNumber) {
 PrimeMover(100);
 
 // Division
+
 // Have the function Division(num1,num2) take both parameters being passed and return the Greatest Common
 // Factor. That is, return the greatest number that evenly goes into both numbers with no remainder.For
 // example: 12 and 16 both are divisible by 1, 2, and 4 so the output should be 4. The range for both
@@ -190,11 +192,7 @@ let string2 = "codrebtaqqq"; // hello
 
 function StringScramble(str1, str2) {
   let x1 = str1.split("");
-  console.log(x1.splice(1, 1));
-  console.log(x1);
-
   let x2 = str2.split("");
-  console.log(x2);
 
   for (let i = 0; i < x1.length; i++) {
     for (let j = 0; j < x2.length; j++) {
@@ -207,8 +205,6 @@ function StringScramble(str1, str2) {
 
   let y1 = x1.sort();
   let y2 = x2.sort();
-  console.log(y1);
-  console.log(y2);
 
   for (let i = 0; i < y1.length; i++) {
     if (y1[i] !== y2[i]) {
@@ -234,46 +230,6 @@ function checkCharacterInString(str, character) {
     return false;
   }
 }
-
-// let nuevoArray = string1.map(checkCharacterInString(string1, carac));
-
-// function StringScramble(str1, str2) {
-//   let contador = 0;
-//   for (let i = 0; i < str1.length; i++) {
-//     for (let j = 0; j < str2.length; j++) {
-//       if (str1[i] === str1[j]) {
-//         contador++;
-//         console.log(i);
-//         console.log(contador);
-//         str1.splice([j], 1);
-//         console.log(str1);
-//       }
-//     }
-//     console.log(contador);
-//     if (contador === str2.length) {
-//       return true;
-//     } else return false;
-//   }
-// }
-
-// console.log(StringScramble(x1, x2));
-
-// /*
-//   function StringScramble(str1, str2) {
-//     let contador = 0;
-//     for (let i = 0; i < str2.length; i++) {
-//       if (checkCharacterInString(str1, str2[i])) {
-//         contador++;
-//       }
-//     }
-//     if (contador === str2.length) {
-//       return true;
-//     } else return false;
-//   }
-
-//   console.log(StringScramble(string1, string2));
-
-//   console.log(checkCharacterInString(string1, "oe"));
 
 //   // Arith Geo II
 
