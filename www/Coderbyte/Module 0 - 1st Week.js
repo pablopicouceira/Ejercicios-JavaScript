@@ -1,4 +1,4 @@
-'use strict';
+"use strict";
 
 // First Reverse
 
@@ -9,7 +9,7 @@ function firstReverse(str) {
   let a = str.length;
 
   // console.log(a);
-  let invertedString = '';
+  let invertedString = "";
 
   while (a >= 0) {
     invertedString = invertedString + str.charAt(a);
@@ -20,7 +20,7 @@ function firstReverse(str) {
   return invertedString;
 }
 
-console.log(firstReverse('devolver cadena javascript sin signos'));
+console.log(firstReverse("devolver cadena javascript sin signos"));
 
 // First Factorial
 
@@ -46,10 +46,10 @@ console.log(firstFactorial(4));
 
 function longestWord(sen) {
   let a = 0;
-  let newString = '';
+  let newString = "";
 
   while (a <= sen.length) {
-    if (esAlfaNumerico(sen.charAt(a)) || sen.charAt(a) === ' ') {
+    if (esAlfaNumerico(sen.charAt(a)) || sen.charAt(a) === " ") {
       newString = newString + sen.charAt(a);
     }
 
@@ -57,8 +57,8 @@ function longestWord(sen) {
   }
 
   let length = 0;
-  let palabra = '';
-  let array = newString.split(' ');
+  let palabra = "";
+  let array = newString.split(" ");
 
   for (let i = 0; i < array.length; i++) {
     if (array[i].length > length) {
@@ -74,7 +74,7 @@ function esAlfaNumerico(caracter) {
   return (ascii > 47 && ascii < 58) || (ascii > 64 && ascii < 91);
 }
 
-console.log(longestWord('123456789 98765432'));
+console.log(longestWord("123456789 98765432"));
 
 // function LongestWord(sen) {
 //   let longestWord = '';
@@ -124,12 +124,12 @@ console.log(simpleAdding(20));
 // be separated by only one space.
 
 function letterCapitalize(str) {
-  const words = str.split(' ').map(capitalize);
+  const words = str.split(" ").map(capitalize);
   console.log(words);
-  let answer = '';
+  let answer = "";
 
   for (let i = 0; i < words.length; i++) {
-    answer = answer + words[i] + ' ';
+    answer = answer + words[i] + " ";
     console.log(answer);
   }
 
@@ -137,12 +137,14 @@ function letterCapitalize(str) {
 }
 
 function capitalize(word) {
-  const letters = word.split('');
+  const letters = word.split("");
   letters[0] = letters[0].toUpperCase();
-  return letters.join('');
+  return letters.join("");
 }
 
-console.log(letterCapitalize('construyendo tres muros defensivos ante la desaceleración'));
+console.log(
+  letterCapitalize("construyendo tres muros defensivos ante la desaceleración")
+);
 
 // Check Nums
 
@@ -153,7 +155,7 @@ function checkNums(num1, num2) {
   if (num2 > num1) {
     return true;
   } else if (num1 === num2) {
-    return '-1';
+    return "-1";
   } else return false;
 }
 
@@ -179,9 +181,19 @@ console.log(timeConvert(259));
 
 function alphabetSoup(str) {
   return str
-    .split('')
+    .split("")
     .sort()
-    .join('');
+    .join("");
 }
 
-console.log(alphabetSoup('jsñaidofjioejñaoiejaoif'));
+console.log(alphabetSoup("jsñaidofjioejñaoiejaoif"));
+
+let x = "pablo";
+
+let xsplit = x.split("");
+console.log(xsplit);
+
+let y = ["p", "a", "b", "l", "o"];
+
+let yjoin = y.join(" ");
+console.log(yjoin.split(" "));
