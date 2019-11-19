@@ -178,36 +178,163 @@ function esAlfaNumerico(caracter) {
 }
 
 console.log(PalindromeTwo(string));
-//   upperString = newString.toUpperCase();
 
-//   let b = upperString.length;
+// String Scramble
 
-//   let invertedString = "";
+// Have the function StringScramble(str1,str2) take both parameters being passed and return the string true if a portion of str1
+// characters can be rearranged to match str2, otherwise return the string false.For example: if str1 is "rkqodlw" and str2 is "world"
+// the output should return true. Punctuation and symbols will not be entered with the parameters.
 
-//   while (a >= 0) {
-//     invertedString = invertedString + upperString.charAt(b);
-//     b--;
-//   }
-//   if (upperString === invertedString) {
-//     consoele.log("true");
+let string1 = "coodrebtqqkye"; // h3llko
+let string2 = "codrebtaqqq"; // hello
+
+function StringScramble(str1, str2) {
+  let x1 = str1.split("");
+  console.log(x1.splice(1, 1));
+  console.log(x1);
+
+  let x2 = str2.split("");
+  console.log(x2);
+
+  for (let i = 0; i < x1.length; i++) {
+    for (let j = 0; j < x2.length; j++) {
+      if (!checkCharacterInString(x2, x1[i])) {
+        x1.splice(i, 1);
+        i = i - 1;
+      }
+    }
+  }
+
+  let y1 = x1.sort();
+  let y2 = x2.sort();
+  console.log(y1);
+  console.log(y2);
+
+  for (let i = 0; i < y1.length; i++) {
+    if (y1[i] !== y2[i]) {
+      y1.splice(i, 1);
+      i = i - 1;
+      console.log(y1);
+    }
+  }
+
+  if (y1.length - y2.length === 0) {
+    return true;
+  }
+  return false;
+}
+
+console.log(StringScramble(string1, string2));
+
+function checkCharacterInString(str, character) {
+  for (let i = 0; i < str.length; i++) {
+    if (str.includes(character)) {
+      return true;
+    }
+    return false;
+  }
+}
+
+// let nuevoArray = string1.map(checkCharacterInString(string1, carac));
+
+// function StringScramble(str1, str2) {
+//   let contador = 0;
+//   for (let i = 0; i < str1.length; i++) {
+//     for (let j = 0; j < str2.length; j++) {
+//       if (str1[i] === str1[j]) {
+//         contador++;
+//         console.log(i);
+//         console.log(contador);
+//         str1.splice([j], 1);
+//         console.log(str1);
+//       }
+//     }
+//     console.log(contador);
+//     if (contador === str2.length) {
+//       return true;
+//     } else return false;
 //   }
 // }
 
-// eliminarNoLetras(string);
+// console.log(StringScramble(x1, x2));
 
-// function firstReverse(str) {
-//   let a = str.length;
-
-//   // console.log(a);
-//   let invertedString = "";
-
-//   while (a >= 0) {
-//     invertedString = invertedString + str.charAt(a);
-//     a--;
-//     // console.log(a);
+// /*
+//   function StringScramble(str1, str2) {
+//     let contador = 0;
+//     for (let i = 0; i < str2.length; i++) {
+//       if (checkCharacterInString(str1, str2[i])) {
+//         contador++;
+//       }
+//     }
+//     if (contador === str2.length) {
+//       return true;
+//     } else return false;
 //   }
 
-//   return invertedString;
+//   console.log(StringScramble(string1, string2));
+
+//   console.log(checkCharacterInString(string1, "oe"));
+
+//   // Arith Geo II
+
+//   // Have the function ArithGeoII(arr) take the array of numbers stored in arr and return the string "Arithmetic" if the sequence follows an
+//   // arithmetic pattern or return "Geometric" if it follows a geometric pattern.If the sequence doesn't follow either pattern return -1. An
+//   // arithmetic sequence is one where the difference between each of the numbers is consistent, where as in a geometric sequence, each term
+//   // after the first is multiplied by some constant or common ratio.Arithmetic example: [2, 4, 6, 8] and Geometric example: [2, 6, 18, 54].
+//   // Negative numbers may be entered as parameters, 0 will not be entered, and no array will contain all the same elements.
+
+//   let arrayx = [5, 10, 15]; //  [2, 4, 6, 8]
+
+//   let constante = arrayx[1] - arrayx[0];
+//   console.log(constante);
+
+//   function ArithGeoII(arr) {
+//     let diference1 = arr[1] - arr[0];
+//     console.log(diference1);
+//     let diference2 = 0;
+//     for (let i = 0; i < arr.length - 1; i++) {
+//       for (let j = i + 1; j < i + 2; j++) {
+//         console.log(`num: ${arr[i]} --- num: ${arr[j]}`);
+//         if (arr[j] - arr[i] < diference1) {
+//           diference2 = arr[j] - arr[i];
+//         }
+//         console.log(diference1);
+//         console.log(diference2);
+//       }
+//     }
+//     let divisor1 = arr[1] - arr[0];
+//     let divisor2 = 0;
+
+//     for (let i = 0; i < arr.length - 1; i++) {
+//       for (let j = i + 1; j < i + 2; j++) {
+//         console.log(`num: ${arr[i]} --- num: ${arr[j]}`);
+//         if (divisor1 != arr[j] / arr[i]) {
+//           divisor2 = arr[j] / arr[i];
+//         }
+//       }
+//     }
+//     if (diference1 === diference2) {
+//       return "Arithmetic";
+//     } else if (divisor1 === divisor2) {
+//       return "Geometric";
+//     } else return -1;
+//   }
+// }
+// console.log(ArithGeoII(arrayx));
+
+// var lista = [7, 9, 14, 22, 4, 6];
+
+// var resultado1 = lista.reduce(function(total, valor) {
+//   return total + valor;
+// });
+// console.log(resultado1);
+
+// var mayor = lista.reduce(function (resultado, valor) {
+//   if (resultado < valor) { resultado = valor };
+
+//   console.log(resultado);
+
+//   return valor;
 // }
 
-// console.log(firstReverse(upperString));
+// console.log(mayor)
