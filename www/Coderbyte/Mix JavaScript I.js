@@ -231,52 +231,49 @@ function checkCharacterInString(str, character) {
   }
 }
 
-//   // Arith Geo II
+//   Arith Geo II
 
-//   // Have the function ArithGeoII(arr) take the array of numbers stored in arr and return the string "Arithmetic" if the sequence follows an
-//   // arithmetic pattern or return "Geometric" if it follows a geometric pattern.If the sequence doesn't follow either pattern return -1. An
-//   // arithmetic sequence is one where the difference between each of the numbers is consistent, where as in a geometric sequence, each term
-//   // after the first is multiplied by some constant or common ratio.Arithmetic example: [2, 4, 6, 8] and Geometric example: [2, 6, 18, 54].
-//   // Negative numbers may be entered as parameters, 0 will not be entered, and no array will contain all the same elements.
+//   Have the function ArithGeoII(arr) take the array of numbers stored in arr and return the string "Arithmetic" if the sequence follows an
+//   arithmetic pattern or return "Geometric" if it follows a geometric pattern.If the sequence doesn't follow either pattern return -1. An
+//   arithmetic sequence is one where the difference between each of the numbers is consistent, where as in a geometric sequence, each term
+//   after the first is multiplied by some constant or common ratio.Arithmetic example: [2, 4, 6, 8] and Geometric example: [2, 6, 18, 54].
+//   Negative numbers may be entered as parameters, 0 will not be entered, and no array will contain all the same elements.
 
-//   let arrayx = [5, 10, 15]; //  [2, 4, 6, 8]
+let arrayx = [1, 2, 3, 4, 5, 10, 20];
 
-//   let constante = arrayx[1] - arrayx[0];
-//   console.log(constante);
+function ArithGeoII(arr) {
+  if (isGeometric(arr)) {
+    return "Geometric";
+  } else if (isArithmetic(arr)) {
+    return "Arithmetic";
+  } else return -1;
+}
 
-//   function ArithGeoII(arr) {
-//     let diference1 = arr[1] - arr[0];
-//     console.log(diference1);
-//     let diference2 = 0;
-//     for (let i = 0; i < arr.length - 1; i++) {
-//       for (let j = i + 1; j < i + 2; j++) {
-//         console.log(`num: ${arr[i]} --- num: ${arr[j]}`);
-//         if (arr[j] - arr[i] < diference1) {
-//           diference2 = arr[j] - arr[i];
-//         }
-//         console.log(diference1);
-//         console.log(diference2);
-//       }
-//     }
-//     let divisor1 = arr[1] - arr[0];
-//     let divisor2 = 0;
+console.log(ArithGeoII(arrayx));
 
-//     for (let i = 0; i < arr.length - 1; i++) {
-//       for (let j = i + 1; j < i + 2; j++) {
-//         console.log(`num: ${arr[i]} --- num: ${arr[j]}`);
-//         if (divisor1 != arr[j] / arr[i]) {
-//           divisor2 = arr[j] / arr[i];
-//         }
-//       }
-//     }
-//     if (diference1 === diference2) {
-//       return "Arithmetic";
-//     } else if (divisor1 === divisor2) {
-//       return "Geometric";
-//     } else return -1;
-//   }
-// }
-// console.log(ArithGeoII(arrayx));
+function isArithmetic(arr) {
+  let diference = arr[1] - arr[0];
+  for (let i = 0; i < arr.length - 1; i++) {
+    if (arr[i + 1] - arr[i] !== diference) {
+      return false;
+    }
+  }
+  return true;
+}
+
+console.log(isArithmetic(arrayx));
+
+function isGeometric(arr) {
+  let quotient = arr[1] / arr[0];
+  for (let i = 0; i < arr.length - 1; i++) {
+    if (arr[i + 1] / arr[i] !== quotient) {
+      return false;
+    }
+  }
+  return true;
+}
+
+console.log(isGeometric(arrayx));
 
 // var lista = [7, 9, 14, 22, 4, 6];
 
