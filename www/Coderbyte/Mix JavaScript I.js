@@ -23,7 +23,7 @@ console.log(PrimeTime(17));
 
 // Have the function RunLength(str) take the str parameter being passed and return a compressed version of the string using the Run-length
 // encoding algorithm. This algorithm works by taking the occurrence of each repeating character and outputting that number along with a
-// single character of the repeating sequence.For example: "wwwggopp" would return 3w2g1o2p.The string will not contain any numbers,
+// single character of the repeating sequence. For example: "wwwggopp" would return 3w2g1o2p.The string will not contain any numbers,
 // punctuation, or symbols.
 
 const text = "wwwbbbwssrbbmmm";
@@ -49,11 +49,11 @@ console.log(RunLength(text));
 
 // Prime Mover
 
-// Have the function PrimeMover(num) return the numth prime number. The range will be from 1 to 10^4. For example: if num is 16 the
-// output should be 53 as 53 is the 16th prime number.
+// Have the function PrimeMover(num) return the numth prime number. The range will be from 1 to 10^4. For example: if num is 16 the output
+// should be 53 as 53 is the 16th prime number.
 
 function PrimeMover(num) {
-  let np = 0;
+  let np = 0; // contador de numeros primos
   let n = 2;
   let array = [];
   if (num < 10 ** 4 && num > 0) {
@@ -82,67 +82,12 @@ function isPrime(aNumber) {
 
 PrimeMover(100);
 
-// Division
-
-// Have the function Division(num1,num2) take both parameters being passed and return the Greatest Common
-// Factor. That is, return the greatest number that evenly goes into both numbers with no remainder.For
-// example: 12 and 16 both are divisible by 1, 2, and 4 so the output should be 4. The range for both
-// parameters will be from 1 to 10 ^ 3.
-
-function greatestCommonFactor(num1, num2) {
-  let array = [];
-  let contador = 0;
-  while (contador < Math.min(num1, num2) + 1) {
-    if (num1 % contador == 0 && num2 % contador == 0) {
-      array.push(contador);
-    }
-    contador++;
-  }
-  return array[array.length - 1];
-}
-
-console.log(greatestCommonFactor(1, 1));
-
-// Array Addition
-
-// Have the function ArrayAddition(arr) take the array of numbers stored in arr and return the string true if any combination of numbers
-// in the array(excluding the largest number) can be added up to equal the largest number in the array, otherwise return the string
-// false.For example: if arr contains[4, 6, 23, 10, 1, 3] the output should return true because 4 + 6 + 10 + 3 = 23. The array will not
-// be empty, will not contain all the same elements, and may contain negative numbers.
-
-let array = [12, 3, 25, 8, 2, 14];
-
-function getMaxOfArray(unArray) {
-  return Math.max.apply(null, unArray);
-}
-let max = getMaxOfArray(array);
-
-console.log(max);
-
-let posicion = array.indexOf(max);
-console.log(posicion);
-
-array.splice(posicion, 1);
-console.log(array);
-
-function comparar(a, b) {
-  return b - a;
-}
-
-array.sort(comparar);
-
-console.log(array);
-
-function ArrayAddition(arr) {
-  return arr;
-}
-
 // Palindrome Two
 
-// Have the function PalindromeTwo(str) take the str parameter being passed and return the string true if the parameter is a palindrome,
-// (the string is the same forward as it is backward) otherwise return the string false.The parameter entered may have punctuation and
-// symbols but they should not affect whether the string is in fact a palindrome.For example: "Anne, I vote more cars race Rome-to-Vienna"
-// should return true.
+// Have the function PalindromeTwo(str) take the str parameter being passed and return the string true if the parameter is a palindrome, (the
+// string is the same forward as it is backward) otherwise return the string false.The parameter entered may have punctuation and symbols but
+// they should not affect whether the string is in fact a palindrome.For example: "Anne, I vote more cars race Rome-to-Vienna" should return
+// true.
 
 let string = "A warx at Tarawa!"; //"Noel - sees Leon"; // "A war at Tarawa!"
 
@@ -153,7 +98,6 @@ function PalindromeTwo(str) {
     if (esAlfaNumerico(str.charAt(a))) {
       newString = newString + str.charAt(a);
     }
-
     a++;
   }
   console.log(newString);
@@ -180,6 +124,26 @@ function esAlfaNumerico(caracter) {
 }
 
 console.log(PalindromeTwo(string));
+
+// Division
+
+// Have the function Division(num1,num2) take both parameters being passed and return the Greatest Common Factor. That is, return the greatest
+// number that evenly goes into both numbers with no remainder. For example: 12 and 16 both are divisible by 1, 2, and 4 so the output should
+// be 4. The range for both parameters will be from 1 to 10 ^ 3.
+
+function Division(num1, num2) {
+  let array = [];
+  let contador = 0;
+  while (contador < Math.min(num1, num2) + 1) {
+    if (num1 % contador == 0 && num2 % contador == 0) {
+      array.push(contador);
+    }
+    contador++;
+  }
+  return array[array.length - 1];
+}
+
+console.log(Division(40, 160));
 
 // String Scramble
 
@@ -275,6 +239,111 @@ function isGeometric(arr) {
 
 console.log(isGeometric(arrayx));
 
+// Letter Count
+
+// Have the function LetterCount(str) take the str parameter being passed and return the first word with the greatest number of repeated
+// letters.For example: "Today, is the greatest day ever!" should return greatest because it has 2 e's (and 2 t's) and it comes before ever
+// which also has 2 e's. If there are no words with repeating letters return -1. Words will be separated by spaces.
+
+let string3 = "No Woords";
+console.log(string3.split(" "));
+
+function LetterCount(str) {
+  console.log(str);
+  const words = str
+    .split(" ")
+    .map(orderWord)
+    .map(countRepeatedLetters);
+  console.log(words);
+
+  const reducer = (accumulator, currentValue) => accumulator + currentValue;
+  if (words.reduce(reducer) !== 0) {
+    let max = 0;
+    for (let i = 0; i < words.length; i++) {
+      if (words[i] > max) {
+        max = words[i];
+      }
+    }
+    let wantedPosition = words.indexOf(max);
+    console.log(words.indexOf(max));
+    return str.split(" ")[wantedPosition];
+  } else return -1;
+}
+
+console.log(LetterCount(string3));
+
+const word = "zanahoria";
+
+function orderWord(word) {
+  const orderedWord = word
+    .split("")
+    .sort()
+    .join("");
+  return orderedWord;
+}
+
+console.log(orderWord(word));
+let orderedWord = orderWord(word);
+console.log(orderedWord);
+
+function countRepeatedLetters(word) {
+  let contador = 1;
+  let repetitions = 0;
+  for (let i = 0; i < word.length; i++) {
+    if (word[i + 1] === word[i]) {
+      contador++;
+      repetitions = contador;
+    } else {
+      contador = 1;
+    }
+  }
+  return repetitions;
+}
+
+console.log(countRepeatedLetters(orderedWord));
+
+// console.log(countRepeatedLetters(orderWord(word))); Si no guardo el resultado anterior en una variable
+
+// Array Addition
+
+// Have the function ArrayAddition(arr) take the array of numbers stored in arr and return the string true if any combination of numbers in
+// the array(excluding the largest number) can be added up to equal the largest number in the array, otherwise return the string false. For
+// example: if arr contains[4, 6, 23, 10, 1, 3] the output should return true because 4 + 6 + 10 + 3 = 23. The array will not be empty, will
+// not contain all the same elements, and may contain negative numbers.
+
+let array = [12, 3, 27, 8, 2, 14];
+
+const largest = array.sort(function(a, b) {
+  return b - a;
+})[0];
+
+console.log(largest);
+
+function getMaxOfArray(unArray) {
+  return Math.max.apply(null, unArray);
+}
+let max = getMaxOfArray(array);
+
+console.log(max);
+
+let posicion = array.indexOf(max);
+console.log(posicion);
+
+array.splice(posicion, 1);
+console.log(array);
+
+function comparar(a, b) {
+  return b - a;
+}
+
+array.sort(comparar);
+
+console.log(array);
+
+function ArrayAddition(arr) {
+  return arr;
+}
+
 // var lista = [7, 9, 14, 22, 4, 6];
 
 // var resultado1 = lista.reduce(function(total, valor) {
@@ -291,3 +360,16 @@ console.log(isGeometric(arrayx));
 // }
 
 // console.log(mayor)
+
+const ages = [25, 6, 35, 4, 16];
+// Dejamos los adultos
+const adult = ages.filter(age => age >= 18);
+
+console.log(adult);
+
+// Contamos con reduce los que han quedado en el array filtrado
+const totalAges = ages.reduce((accumulator, actualValue) => {
+  return accumulator + actualValue;
+});
+
+console.log(totalAges);
