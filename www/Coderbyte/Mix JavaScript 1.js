@@ -311,38 +311,28 @@ console.log(countRepeatedLetters(orderedWord));
 // example: if arr contains[4, 6, 23, 10, 1, 3] the output should return true because 4 + 6 + 10 + 3 = 23. The array will not be empty, will
 // not contain all the same elements, and may contain negative numbers.
 
-let array = [12, 3, 27, 8, 2, 14];
+/* El enunciado no explica bien el ejercicio. Se trata de hallar el valor más alto del array, y comprobar si la suma del resto iguala o
+   igual o excede su valor. Así que ordenaremos el array con sort, extraeremos el valor con splice, y haremos la comprobación con reduce */
 
-const largest = array.sort(function(a, b) {
-  return b - a;
-})[0];
+let array = [12, 3, 100, 8, 2, 14];
 
-console.log(largest);
-
-function getMaxOfArray(unArray) {
-  return Math.max.apply(null, unArray);
-}
-let max = getMaxOfArray(array);
-
-console.log(max);
-
-let posicion = array.indexOf(max);
-console.log(posicion);
-
-array.splice(posicion, 1);
-console.log(array);
-
-function comparar(a, b) {
-  return b - a;
-}
-
-array.sort(comparar);
-
-console.log(array);
-
+// const largest = array.sort(function(a, b) {return b - a;})[0];
 function ArrayAddition(arr) {
-  return arr;
+  let largest = Math.max.apply(null, arr);
+
+  let position = arr.indexOf(largest);
+
+  arr.splice(position, 1);
+
+  const reducer = (accumulator, currentValue) => accumulator + currentValue;
+
+  if (arr.reduce(reducer) >= largest) {
+    return true;
+  }
+  return false;
 }
+
+console.log(ArrayAddition(array));
 
 // var lista = [7, 9, 14, 22, 4, 6];
 
