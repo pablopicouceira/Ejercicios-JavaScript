@@ -127,9 +127,9 @@ console.log(PalindromeTwo(string));
 
 // Division
 
-// Have the function Division(num1,num2) take both parameters being passed and return the Greatest Common Factor. That is, return the greatest
-// number that evenly goes into both numbers with no remainder. For example: 12 and 16 both are divisible by 1, 2, and 4 so the output should
-// be 4. The range for both parameters will be from 1 to 10 ^ 3.
+// Have the function Division(num1,num2) take both parameters being passed and return the Greatest Common Factor. That is, return the
+// greates number that evenly goes into both numbers with no remainder. For example: 12 and 16 both are divisible by 1, 2, and 4 so the
+// output should be 4. The range for both parameters will be from 1 to 10 ^ 3.
 
 function Division(num1, num2) {
   let array = [];
@@ -239,6 +239,50 @@ function isGeometric(arr) {
 
 console.log(isGeometric(arrayx));
 
+// Array Addition
+
+// Have the function ArrayAddition(arr) take the array of numbers stored in arr and return the string true if any combination of numbers in
+// the array(excluding the largest number) can be added up to equal the largest number in the array, otherwise return the string false. For
+// example: if arr contains[4, 6, 23, 10, 1, 3] the output should return true because 4 + 6 + 10 + 3 = 23. The array will not be empty, will
+// not contain all the same elements, and may contain negative numbers.
+
+/* El enunciado no explica bien el ejercicio. Se trata de hallar el valor más alto del array, y comprobar si la suma del resto iguala o
+   igual o excede su valor. Así que ordenaremos el array con sort, extraeremos el valor con splice, y haremos la comprobación con reduce */
+
+let array = [12, 3, 100, 8, 2, 14];
+
+// const largest = array.sort(function(a, b) {return b - a;})[0]; Otra manera
+function ArrayAddition(arr) {
+  let largest = Math.max.apply(null, arr);
+
+  let position = arr.indexOf(largest);
+
+  arr.splice(position, 1);
+
+  const reducer = (accumulator, currentValue) => accumulator + currentValue;
+
+  if (arr.reduce(reducer) >= largest) {
+    return true;
+  }
+  return false;
+}
+
+console.log(ArrayAddition(array));
+
+// Binary Converter
+
+// Have the function BinaryConverter(str) return the decimal form of the binary value. For example: if 101 is passed return 5, or if 1000 is
+// passed return 8.
+
+let binario = "100101"; // 12
+
+function BinaryConverter(str) {
+  let binarioEnDecimal = parseInt(str, 2);
+
+  return binarioEnDecimal;
+}
+console.log(BinaryConverter(binario));
+
 // Letter Count
 
 // Have the function LetterCount(str) take the str parameter being passed and return the first word with the greatest number of repeated
@@ -303,63 +347,3 @@ function countRepeatedLetters(word) {
 console.log(countRepeatedLetters(orderedWord));
 
 // console.log(countRepeatedLetters(orderWord(word))); Si no guardo el resultado anterior en una variable
-
-// Array Addition
-
-// Have the function ArrayAddition(arr) take the array of numbers stored in arr and return the string true if any combination of numbers in
-// the array(excluding the largest number) can be added up to equal the largest number in the array, otherwise return the string false. For
-// example: if arr contains[4, 6, 23, 10, 1, 3] the output should return true because 4 + 6 + 10 + 3 = 23. The array will not be empty, will
-// not contain all the same elements, and may contain negative numbers.
-
-/* El enunciado no explica bien el ejercicio. Se trata de hallar el valor más alto del array, y comprobar si la suma del resto iguala o
-   igual o excede su valor. Así que ordenaremos el array con sort, extraeremos el valor con splice, y haremos la comprobación con reduce */
-
-let array = [12, 3, 100, 8, 2, 14];
-
-// const largest = array.sort(function(a, b) {return b - a;})[0];
-function ArrayAddition(arr) {
-  let largest = Math.max.apply(null, arr);
-
-  let position = arr.indexOf(largest);
-
-  arr.splice(position, 1);
-
-  const reducer = (accumulator, currentValue) => accumulator + currentValue;
-
-  if (arr.reduce(reducer) >= largest) {
-    return true;
-  }
-  return false;
-}
-
-console.log(ArrayAddition(array));
-
-// var lista = [7, 9, 14, 22, 4, 6];
-
-// var resultado1 = lista.reduce(function(total, valor) {
-//   return total + valor;
-// });
-// console.log(resultado1);
-
-// var mayor = lista.reduce(function (resultado, valor) {
-//   if (resultado < valor) { resultado = valor };
-
-//   console.log(resultado);
-
-//   return valor;
-// }
-
-// console.log(mayor)
-
-const ages = [25, 6, 35, 4, 16];
-// Dejamos los adultos
-const adult = ages.filter(age => age >= 18);
-
-console.log(adult);
-
-// Contamos con reduce los que han quedado en el array filtrado
-const totalAges = ages.reduce((accumulator, actualValue) => {
-  return accumulator + actualValue;
-});
-
-console.log(totalAges);
