@@ -1,5 +1,49 @@
 "use strict";
 
+// Caesar Cipher
+
+// Have the function CaesarCipher(str,num) take the str parameter and perform a Caesar Cipher shift on it using the num parameter as the
+// shifting number. A Caesar Cipher works by shifting each letter in the string N places down in the alphabet(in this case N will be num).
+// Punctuation, spaces, and capitalization should remain intact. For example if the string is "Caesar Cipher" and num is 2 the output should
+// be "Ecguct Ekrjgt".
+
+let inputr = "coderBYTE";
+let numero = 2;
+
+function CaesarCipher(str, num) {
+  let newString = "";
+  for (let i = 0; i < str.length; i++) {
+    if (isLowercase(str[i])) {
+      if (num > 122 - str.charCodeAt(i)) {
+        newString =
+          newString + String.fromCharCode(96 + num - (122 - str.charCodeAt(i)));
+      } else {
+        newString = newString + String.fromCharCode(str.charCodeAt(i) + num);
+      }
+    } else if (isUppercase(str[i])) {
+      if (num > 90 - str.charCodeAt(i)) {
+        newString =
+          newString + String.fromCharCode(64 + num - (90 - str.charCodeAt(i)));
+      } else {
+        newString = newString + String.fromCharCode(str.charCodeAt(i) + num);
+      }
+    } else newString = newString + str[i];
+  }
+  return newString;
+}
+
+console.log(CaesarCipher(inputr, numero));
+
+function isLowercase(character) {
+  let ascii = character.charCodeAt(0);
+  return ascii > 96 && ascii < 123;
+}
+
+function isUppercase(character) {
+  let ascii = character.charCodeAt(0);
+  return ascii > 64 && ascii < 91;
+}
+
 // Consecutive
 
 // Have the function Consecutive(arr) take the array of integers stored in arr and return the minimum number of integers needed to make the contents of arr
