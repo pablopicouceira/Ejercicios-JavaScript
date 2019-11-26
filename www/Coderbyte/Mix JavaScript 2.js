@@ -44,6 +44,63 @@ function isUppercase(character) {
   return ascii > 64 && ascii < 91;
 }
 
+// Simple Mode
+
+// Have the function SimpleMode(arr) take the array of numbers stored in arr and return the number that appears most frequently (the mode).
+// For example: if arr contains[10, 4, 5, 2, 4] the output should be 4. If there is more than one mode return the one that appeared in the
+// array first(ie. [5, 10, 10, 6, 5] should return 5 because it appeared first).If there is no mode return -1. The array will not be empty.
+
+/* Recorremos el array para crear un objeto cuyas propiedades son los valores del array sus valores las repeticiones. Obtenemos el valor
+   mayor de esas propiedades mediante Object.entries. Después hacemos una función que nos devuelve el número de repeticiones de un número en
+   un array. Finalmente, hacemos un bucle que retorne el primer valor del array que iguale esa función */
+
+let arreglo = [4, 5, 1, 6, 7, 5, 8, 100, 5, 200, 1000, 5];
+
+function SimpleMode(arr) {
+  let characterList = {};
+  for (let i = 0; i < arr.length; i++) {
+    if (!characterList[arr[i]]) {
+      characterList[arr[i]] = 1;
+    } else {
+      characterList[arr[i]]++;
+    }
+  }
+
+  let values = [];
+  for (let [key, value] of Object.entries(characterList)) {
+    console.log(`${key}: ${value}`);
+    values.push(value);
+  }
+
+  if (Math.max(...values) === 1) {
+    return -1;
+  } else
+    for (let i = 0; i < arr.length; i++) {
+      if (countRepetitions(arr, arr[i]) === Math.max(...values)) {
+        return arr[i];
+      }
+    }
+}
+
+function countRepetitions(arr, num) {
+  let contador = 0;
+  for (let i = 0; i < arr.length; i++) {
+    if (arr[i] === num) {
+      contador++;
+    }
+  }
+  return contador;
+}
+
+console.log(countRepetitions(arreglo, 5));
+
+console.log(SimpleMode(arreglo));
+
+// Vamos a introducir en el objeto vacío las distintas letras que vayamos encontrando en el string
+// "text" como propiedades.Así mismo vamos a decir cuántas veces se encuentra dicha letra en el string
+// en el valor de cada propiedad.En resumen, cada letra distinta que haya en "text" será una propiedad,
+// y tendrá como valor el número de veces que se repite dicha letra a lo largo de todo el string.
+
 // Consecutive
 
 // Have the function Consecutive(arr) take the array of integers stored in arr and return the minimum number of integers needed to make the contents of arr
