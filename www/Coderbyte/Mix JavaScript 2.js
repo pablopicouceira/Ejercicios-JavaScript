@@ -285,6 +285,46 @@ function PermutationStep(num) {
 
 console.log(PermutationStep(inputx));
 
+// Dash Insert II
+
+// Have the function DashInsertII(str) insert dashes('-') between each two odd numbers and insert asterisks('*') between each two even
+// numbers in str.For example: if str is 4546793 the output should be 454 * 67 - 9 - 3. Don't count zero as an odd or even number.
+
+let figure = 56647304;
+
+function DashInsertII(num) {
+  let string = Array.from(num.toString());
+
+  for (let i = 0; i < string.length - 1; i++) {
+    if (isEven(parseInt(string[i])) && isEven(parseInt(string[i + 1]))) {
+      string.splice(i + 1, 0, "*");
+    } else if (isOdd(parseInt(string[i])) && isOdd(parseInt(string[i + 1]))) {
+      string.splice(i + 1, 0, "-");
+    }
+  }
+  return string.join("");
+}
+
+console.log(DashInsertII(figure));
+
+function isEven(num) {
+  if (num % 2 === 0 && num !== 0) {
+    return true;
+  }
+  return false;
+}
+
+console.log(isEven(0));
+
+function isOdd(num) {
+  if (num % 2 === 1) {
+    return true;
+  }
+  return false;
+}
+
+console.log(isOdd(9));
+
 // Prime Checker
 
 // Have the function PrimeChecker(num) take num and return 1 if any arrangement of num comes out to be a prime number, otherwise return 0.
