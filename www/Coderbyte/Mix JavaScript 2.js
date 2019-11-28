@@ -285,46 +285,6 @@ function PermutationStep(num) {
 
 console.log(PermutationStep(inputx));
 
-// Dash Insert II
-
-// Have the function DashInsertII(str) insert dashes('-') between each two odd numbers and insert asterisks('*') between each two even
-// numbers in str.For example: if str is 4546793 the output should be 454 * 67 - 9 - 3. Don't count zero as an odd or even number.
-
-let figure = 56647304;
-
-function DashInsertII(num) {
-  let string = Array.from(num.toString());
-
-  for (let i = 0; i < string.length - 1; i++) {
-    if (isEven(parseInt(string[i])) && isEven(parseInt(string[i + 1]))) {
-      string.splice(i + 1, 0, "*");
-    } else if (isOdd(parseInt(string[i])) && isOdd(parseInt(string[i + 1]))) {
-      string.splice(i + 1, 0, "-");
-    }
-  }
-  return string.join("");
-}
-
-console.log(DashInsertII(figure));
-
-function isEven(num) {
-  if (num % 2 === 0 && num !== 0) {
-    return true;
-  }
-  return false;
-}
-
-console.log(isEven(0));
-
-function isOdd(num) {
-  if (num % 2 === 1) {
-    return true;
-  }
-  return false;
-}
-
-console.log(isOdd(9));
-
 // Prime Checker
 
 // Have the function PrimeChecker(num) take num and return 1 if any arrangement of num comes out to be a prime number, otherwise return 0.
@@ -401,3 +361,107 @@ comb(cadena, grupo, arrayCombinaciones);
 
 console.log(JSON.stringify(arrayCombinaciones));
 */
+
+// Dash Insert II
+
+// Have the function DashInsertII(str) insert dashes('-') between each two odd numbers and insert asterisks('*') between each two even
+// numbers in str.For example: if str is 4546793 the output should be 454 * 67 - 9 - 3. Don't count zero as an odd or even number.
+
+let figure = 56647304;
+
+function DashInsertII(num) {
+  let string = Array.from(num.toString());
+
+  for (let i = 0; i < string.length - 1; i++) {
+    if (isEven(parseInt(string[i])) && isEven(parseInt(string[i + 1]))) {
+      string.splice(i + 1, 0, "*");
+    } else if (isOdd(parseInt(string[i])) && isOdd(parseInt(string[i + 1]))) {
+      string.splice(i + 1, 0, "-");
+    }
+  }
+  return string.join("");
+}
+
+console.log(DashInsertII(figure));
+
+function isEven(num) {
+  if (num % 2 === 0 && num !== 0) {
+    return true;
+  }
+  return false;
+}
+
+console.log(isEven(0));
+
+function isOdd(num) {
+  if (num % 2 === 1) {
+    return true;
+  }
+  return false;
+}
+
+console.log(isOdd(9));
+
+// Swap II
+
+// Have the function SwapII(str) take the str parameter and swap the case of each character. Then, if a letter is between two numbers
+// (without separation), switch the places of the two numbers.For example: if str is "6Hello4 -8World, 7 yes3" the output should be
+// 4hELLO6 - 8wORLD, 7 YES3.
+
+let phrase = "2S 6 du5d4e"; // "Hello -5LOL6" hELLO -6lol5 // '2S 6 du5d4e' 2s 6 DU4D5E
+
+function SwapII(str) {
+  let string = "";
+  for (let i = 0; i < str.length; i++) {
+    if (isLowercase(str.charAt(i))) {
+      string = string + str.charAt(i).toUpperCase();
+    } else if (isUppercase(str.charAt(i))) {
+      string = string + str.charAt(i).toLowerCase();
+    } else string = string + str.charAt(i);
+  }
+
+  return string
+    .split(" ")
+    .map(swapPosition)
+    .join(" ");
+}
+
+function isLowercase(character) {
+  let ascii = character.charCodeAt(0);
+  return ascii > 96 && ascii < 123;
+}
+
+function isUppercase(character) {
+  let ascii = character.charCodeAt(0);
+  return ascii > 64 && ascii < 91;
+}
+
+function isANumber(character) {
+  let ascii = character.charCodeAt(0);
+  return ascii > 47 && ascii < 59;
+}
+
+function swapPosition(word) {
+  let array = Array.from(word);
+
+  for (let i = 0; i < array.length - 2; i++) {
+    for (let j = i + 2; j < array.length; j++) {
+      if (isANumber(array[i]) && isANumber(array[j])) {
+        for (let k = i + 1; k < j; k++) {
+          if (isALetter(array[k])) {
+            let temp = array[j];
+            array[j] = array[i];
+            array[i] = temp;
+          }
+          return array.join("");
+        }
+      }
+    }
+  }
+  return word;
+}
+
+function isALetter(caracter) {
+  let ascii = caracter.toUpperCase().charCodeAt(0);
+  return ascii > 64 && ascii < 91;
+}
