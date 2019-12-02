@@ -1,4 +1,24 @@
-'use strict';
+"use strict";
+
+let arrayx = [3, 3];
+let target = 6;
+
+var twoSum = function(nums, target) {
+  let array = [];
+  for (let i = 0; i < nums.length - 1; i++) {
+    for (let k = i + 1; k < nums.length; k++) {
+      if (nums[i] + nums[k] === target) {
+        console.log(i);
+        console.log(k);
+        array.push(i);
+        array.push(k);
+      }
+    }
+  }
+  return array;
+};
+
+console.log(twoSum(arrayx, target));
 
 // 121. Best Time to Buy and Sell Stock
 
@@ -48,20 +68,20 @@ console.log(containsDuplicate(array));
 
 // Given two strings s and t , write a function to determine if t is an anagram of s.
 
-let string1 = 'anagram';
-let string2 = 'nagaram';
+let string1 = "anagram";
+let string2 = "nagaram";
 
 function isAnagram(s, t) {
   let newString1 = s
-    .split('')
+    .split("")
     .sort()
-    .join('');
+    .join("");
   console.log(newString1);
 
   let newString2 = t
-    .split('')
+    .split("")
     .sort()
-    .join('');
+    .join("");
   console.log(newString2);
 
   if (newString1 === newString2) {
@@ -128,7 +148,7 @@ console.log(findMaxConsecutiveOnes(binarios));
 // Note: The way that the robot is "facing" is irrelevant. "R" will always make the robot move to the right once, "L" will always make
 // it move left, etc.Also, assume that the magnitude of the robot's movement is the same for each move.
 
-let movimientos = 'UDLRDDDULRUUR';
+let movimientos = "UDLRDDDULRUUR";
 
 function judgeCircle(moves) {
   let U = 0;
@@ -136,11 +156,11 @@ function judgeCircle(moves) {
   let R = 0;
   let L = 0;
   for (let i = 0; i < moves.length; i++) {
-    if (moves.charAt(i) === 'U') {
+    if (moves.charAt(i) === "U") {
       U++;
-    } else if (moves.charAt(i) === 'D') {
+    } else if (moves.charAt(i) === "D") {
       D++;
-    } else if (moves.charAt(i) === 'R') {
+    } else if (moves.charAt(i) === "R") {
       R++;
     } else {
       L++;
@@ -164,8 +184,8 @@ console.log(judgeCircle(movimientos));
 // The letters in J are guaranteed distinct, and all characters in J and S are letters. Letters are case sensitive, so "a" is considered
 // a different type of stone from "A".
 
-const jewels = 'aA';
-const stones = 'aAAbbbb';
+const jewels = "aA";
+const stones = "aAAbbbb";
 let contador = 0;
 
 function numJewelsInStones(J, S) {
