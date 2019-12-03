@@ -1,15 +1,18 @@
 "use strict";
 
+// 1. Two Sum
+
+// Given an array of integers, return indices of the two numbers such that they add up to a specific target.
+// You may assume that each input would have exactly one solution, and you may not use the same element twice.
+
 let arrayx = [3, 3];
 let target = 6;
 
-var twoSum = function(nums, target) {
+var twoSum = (nums, target) => {
   let array = [];
   for (let i = 0; i < nums.length - 1; i++) {
     for (let k = i + 1; k < nums.length; k++) {
       if (nums[i] + nums[k] === target) {
-        console.log(i);
-        console.log(k);
         array.push(i);
         array.push(k);
       }
